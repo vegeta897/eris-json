@@ -29,9 +29,19 @@ bot.connect();
 Usage
 -----
 
-Any time after initializing your bot, you can call `ErisJSON.botToJSON(bot)` to write the bot object to a tab-indented JSON file in the root folder named `bot.json`. You may specify a different name or path like this: `ErisJSON.botToJSON(bot, 'debug/client.json')`
+Any time after initializing your bot, you can call `ErisJSON.botToJSON(bot)` to write the bot object to a tab-indented JSON file in the root folder named `bot.json`. You may specify a different name or path:
 
-You can write `message` objects the same way from a `messageCreate` event with `ErisJSON.messageToJSON(message)`.
+```js
+ErisJSON.botToJSON(bot, 'debug/client.json');
+```
+
+This function also returns the stringified JSON. If you just want to get the string and not write it to a file, pass in `false` as the second argument.
+
+```js
+let botJSON = ErisJSON.botToJSON(bot, false);
+```
+
+You can write `message` objects the same way from a `messageCreate` event using `ErisJSON.messageToJSON(message)`.
 
 Why?
 ----
@@ -45,4 +55,4 @@ Some redundancy is eliminated in the bot and message objects. For example, the C
 
 Collections (or maps) are converted to arrays. Maybe they should be converted to objects instead. Tell me what you think.
 
-My sincere thanks and appreciation to [Abalabahaha](https://github.com/abalabahaha) for their awesome library.
+My sincere thanks and appreciation to [abalabahaha](https://github.com/abalabahaha) for their awesome library.

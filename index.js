@@ -39,7 +39,7 @@ function cleanUser(user) {
     return clean;
 }
 
-ErisJSON.messageToJSON = function(message, name) {
+ErisJSON.messageToJSON = function(message, file) {
     let writable = {
         activity: message.activity,
         application: message.application,
@@ -76,10 +76,11 @@ ErisJSON.messageToJSON = function(message, name) {
             username: message.channel.recipient.username
         };
     }
-    writeToFile(writable, name || 'message.json');
+    if(file !== false) writeToFile(writable, file || 'message.json');
+    return JSON.stringify(writable, null, '\t');
 };
 
-ErisJSON.botToJSON = function(bot, name) {
+ErisJSON.botToJSON = function(bot, file) {
     let writable = {
         bot: bot.bot,
         channelGuildMap: bot.channelGuildMap,
@@ -207,7 +208,8 @@ ErisJSON.botToJSON = function(bot, name) {
             volume: connection.volume
         }))
     };
-    writeToFile(writable, name || 'bot.json');
+    if(file !== false) writeToFile(writable, file || 'bot.json');
+    return JSON.stringify(writable, null, '\t');
 };
 
 module.exports = ErisJSON;
