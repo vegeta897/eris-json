@@ -1,7 +1,12 @@
 Eris JSON
 =========
 
-A helper utility for writing [Eris](https://abal.moe/Eris/) objects to JSON
+⛔️ `DEPRECATED` A helper utility for writing [Eris](https://abal.moe/Eris/) objects to JSON
+
+**This library is out of date and no longer maintained.** It may still work but it will probably give incomplete output. Since I now use Typescript primarily, I don't have much need for this library anymore. If somebody wants to revive this in a PR or fork, they are welcome to.
+
+Original Readme below
+-----
 
 ```npm
 npm install eris-json
